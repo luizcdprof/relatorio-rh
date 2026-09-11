@@ -9,7 +9,7 @@ def calcular_media(funcionarios):
 
     return salarios / len(funcionarios)
 
-with open('funcionarios.csv', 'r', encoding='utf-8') as f:
+with open('funcionarios.csv', 'r', encoding='utf-8', newline='') as f:
     leitor = csv.reader(f)
     next(leitor) # pula o cabeçalho
     for linha in leitor:
@@ -19,7 +19,7 @@ with open('funcionarios.csv', 'r', encoding='utf-8') as f:
 media_salarial = calcular_media(funcionarios_antigos)
 print(f'R$ {media_salarial:.2f}'.replace(".", ","))
 
-with open('relatorio_rh.csv', 'w', encoding='utf-8') as f:
+with open('relatorio_rh.csv', 'w', encoding='utf-8', newline='') as f:
     header = ['nome','departamento','salario','anos_empresa','faixa_salarial']
     csv_writer = csv.writer(f)
     csv_writer.writerow(header)
